@@ -54,18 +54,18 @@ public class BST {
         else if(key>node.key){
             node.right = deleteRec(node.right, key);
         }
-        else{
-            if(node.left == null){
+        else {
+            if (node.left == null) {
                 return node.right;
             }
-            if(node.right == null){
+            if (node.right == null) {
                 return node.left;
             }
-        }
 
-        Node successor= findMin(node.right);
-        node.key = successor.key;
-        node.right = deleteRec(successor.right, node.key);
+            Node successor = findMin(node.right);
+            node.key = successor.key;
+            node.right = deleteRec(successor.right, node.key);
+        }
 
         return node;
     }
